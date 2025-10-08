@@ -12,7 +12,7 @@ Gebruiker voert temperatuur, windsnelheid en luchtvochtigheid in (max. 7 dagen).
 Het programma berekent gevoelstemperatuur, Fahrenheit, gemiddelde en een weerrapport.
 
 Sprint 2  Smart App Controller:
-Leest een tekstbestand met daggegevens en stuurt actuatoren aan (CV-ketel, ventilatie, bewatering).
+Leest een tekstbestand met daggegevens en stuurt apparaten aan (CV-ketel, ventilatie, bewatering).
 Menu-opties: aantal dagen, automatisch berekenen, overschrijven, stoppen.
 
 Sprint 3  Platform:
