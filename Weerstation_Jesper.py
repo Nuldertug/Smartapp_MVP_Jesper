@@ -1,6 +1,4 @@
 def weerstation():
-    def gevoelstemperatuur(temp, wind, vocht):
-        return temp - wind * vocht
 
     # functie om graden Celsius naar Fahrenheit te maken
     def fahrenheit(temp_celcius):
@@ -32,38 +30,43 @@ def weerstation():
     for dag in range(1, 8):  # max 7 dagen
 
         # temperatuur invoeren
-        temperatuur = input(f"Wat is op dag {dag} de temperatuur [°C]: ")
-        if temperatuur == "":
-            print("bye")
-            return
-
-        try:
-            temperatuur = float(temperatuur)
-        except:
-            print("verkeerde invoer")
-            return
+        while True: # <-- Aangepast naar loop met break voor correcte afhandeling
+            temperatuur = input(f"Wat is op dag {dag} de temperatuur [°C]: ")
+            if temperatuur == "":
+                print("bye")
+                return
+            try:
+                temperatuur = float(temperatuur)
+                break #<-- gaat door naar volgende vraag
+            except ValueError:
+                print("Ongeldige invoer, voer een geheel getal in.")
 
         # windsnelheid invoeren
-        windsnelheid = input(f"Wat is op dag {dag} de windsnelheid[m/s]: ")
-        if windsnelheid == "":
-            print("bye")
-            return
-        try:
-            windsnelheid = float(windsnelheid)
-        except:
-            print("verkeerde invoer")
-            return
+        while True: # <-- Aangepast naar loop
+            windsnelheid = input(f"Wat is op dag {dag} de windsnelheid [m/s]: ")
+            if windsnelheid == "":
+                print("bye")
+                return
+            try:
+                windsnelheid = float(windsnelheid)
+                break # <-- gaat door naar volgende vraag
+            except ValueError:
+                print("Ongeldige invoer, voer een getal in.")
 
         # luchtvochtigheid invoeren
-        luchtvochtigheid = input(f"Wat is op dag {dag} de vochtigheid[%]: ")
-        if luchtvochtigheid == "":
-            print("bye")
-            return
-        try:
-            luchtvochtigheid = int(luchtvochtigheid)
-        except:
-            print("verkeerde invoer")
-            return
+        while True: # <-- Aangepast naar loop
+            luchtvochtigheid = input(f"Wat is op dag {dag} de vochtigheid [%]: ")
+            if luchtvochtigheid == "":
+                print("bye")
+                return
+            try:
+                luchtvochtigheid = int(luchtvochtigheid)
+                if 0 <= luchtvochtigheid <= 100: #laatste vereiste om luchtvochtigheid tussen 0 en 100 te doen. Dit zie ik ook nu pas bij de vereiste.
+                    break
+                else:
+                    print("Voer een waarde in tussen 0 en 100.")
+            except ValueError:
+                print("Ongeldige invoer, voer een geheel getal in.")
 
         # temperatuur opslaan voor later gemiddelde in de lege list met append
         temperaturen.append(temperatuur)
